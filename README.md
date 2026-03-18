@@ -3,7 +3,7 @@
 ### 1. Identificação do Grupo
 * **Instituição:** Faculdade Engenheiro Salvador Arena (FESA)
 * **Curso:** Engenharia de Controle e Automação - ECA10
-* **Grupo:** Manutenção Preditiva de Zero-Downtime: previsão de falhas em sistemas críticos antes que elas ocorram, utilizando dados de sensores e modelos analíticos para evitar paradas não planejadas.
+* **Grupo:** Manutenção Preditiva de Zero-Downtime: previsão de falhas em sistemas críticos, utilizando dados de sensores e modelos analíticos para evitar paradas não planejadas.
 * **Integrantes:**
     * Carlos Eduardo Gatto - RA: 062210029
     * Luiz Felipe Farias Mota - RA: 062210027
