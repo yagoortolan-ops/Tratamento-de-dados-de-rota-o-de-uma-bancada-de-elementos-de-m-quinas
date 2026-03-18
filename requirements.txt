@@ -1,0 +1,27 @@
+# Manipulação e Análise de Dados
+pandas
+numpy
+openpyxl
+
+# Visualização de Dados e Relatórios
+matplotlib
+seaborn
+plotly
+
+# Processamento e Engenharia de Dados (ETL)
+sqlalchemy
+psycopg2-binary
+pyarrow
+
+# Machine Learning e Estatística (M2)
+scikit-learn
+scipy
+statsmodels
+
+# Redes Neurais e Visão Computacional (Opcional por área)
+tensorflow
+opencv-python
+
+# Utilitários e Ambiente
+python-dotenv
+jupyter
