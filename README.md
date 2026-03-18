@@ -1,23 +1,23 @@
 # Projeto: Título do Projeto
 
 ### 1. Identificação do Grupo
-* **Instituição:** Centro Universitário da Fundação Santo André (FSA) / UNICID
-* **Curso:** [Inserir Nome do Curso]
-* **Grupo:** [Inserir Nome ou Número do Grupo]
-* **Integrantes:** * [Nome Completo] - RA: [000000]
-    * [Nome Completo] - RA: [000000]
-    * [Nome Completo] - RA: [000000]
+* **Instituição:** Faculdade Engenheiro Salvador Arena (FESA) / UNICID
+* **Curso:** Engenharia de Controle e Automação - ECA10
+* **Grupo:** Manutenção Preditiva de Zero-Downtime: previsão de falhas em sistemas críticos antes que elas ocorram, utilizando dados de sensores e modelos analíticos para evitar paradas não planejadas.
+* **Integrantes:** * Carlos Eduardo Gatto - RA: 062210029
+    * Luiz Felipe Farias Mota - RA: 062210027
+    * Raphaella Souza de Moraes - RA: 062210010
+    * Vinicius Makimoto de Freitas - RA: 062210026
+    * Yago Patrick Gomide Oliveira Ortolan - RA: 062210028
 
 ---
 
 ### 2. Área Problema Selecionada
 O grupo seleciona uma das áreas norteadoras abaixo para o desenvolvimento do projeto:
-* [ ] Manutenção Preditiva de Zero-Downtime
+* [x] Manutenção Preditiva de Zero-Downtime
 * [ ] Eficiência Energética e Descarbonização via Smart Grids
 * [ ] Controle de Qualidade Autônomo com Visão Computacional
 * [ ] Gêmeos Digitais (Digital Twins) e Analytics em Tempo Real
-
-> **Nota:** Marque com um [x] a opção escolhida.
 
 ---
 
