@@ -13,6 +13,8 @@
 
 ---
 
+Link do Reposítório: https://colab.research.google.com/drive/103UgsdlRPv8nEaVcMZ7EAl5Mgn4bnZkB#scrollTo=JEqaZVXb7Max
+
 ### 2. Área Problema Selecionada
 O grupo seleciona uma das áreas norteadoras abaixo para o desenvolvimento do projeto:
 * [x] Manutenção Preditiva de Zero-Downtime
