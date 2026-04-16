@@ -83,3 +83,11 @@ O teste de Mann-Whitney apresentou **p-valor = 0,2656**, indicando que não há 
 O tamanho do efeito calculado foi **r = -0,0498**, indicando efeito muito pequeno.
 Assim, conclui-se que as horas operacionais não apresentam diferença estatisticamente significativa entre máquinas com falha e sem falha neste dataset.
 Para o modelo de Machine Learning futuro, a variável operational_hours pode ser utilizada em conjunto com outras variáveis, mas isoladamente não demonstrou forte poder explicativo.
+
+* O aluno **Luiz Felipe Farias Mota** investigou estatisticamente se as máquinas com maior vibração apresentam mais falhas.
+Foi realizado um teste de hipótese com o objetivo de verificar se máquinas que apresentam falhas possuem níveis de vibração diferentes das máquinas que operam normalmente.
+Inicialmente, aplicou-se o teste de normalidade de Shapiro-Wilk, que indicou que os dados de vibração podem ser considerados aproximadamente normais (p > 0,05). Dessa forma, foi possível utilizar o Teste t para comparação entre os grupos.
+O resultado do Teste t apresentou p-valor maior que 0,05, indicando que não foram encontradas evidências estatísticas suficientes para rejeitar a hipótese nula. Em outras palavras, não foi possível confirmar que existe diferença significativa nos níveis de vibração entre máquinas com falha e máquinas sem falha.
+Para reforçar a análise, também foi aplicado o teste não paramétrico de Mann-Whitney, que apresentou resultado consistente (p > 0,05). O cálculo do tamanho do efeito (d de Cohen) resultou em um valor próximo de zero, caracterizando um efeito muito pequeno do ponto de vista prático.
+Portanto, os resultados indicam que, neste conjunto de dados, a variável nível de vibração não apresentou diferença estatisticamente significativa entre os grupos analisados.
+Do ponto de vista da modelagem preditiva, isso sugere que a vibração, quando analisada isoladamente, não se mostrou um indicador forte de falhas. Entretanto, ela ainda pode contribuir para o modelo de Machine Learning quando combinada com outras variáveis relevantes do processo, como torque, temperatura e tempo de operação.
