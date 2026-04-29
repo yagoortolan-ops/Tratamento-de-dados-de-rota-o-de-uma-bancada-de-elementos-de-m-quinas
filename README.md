@@ -95,3 +95,74 @@ Do ponto de vista da modelagem preditiva, isso sugere que a vibração, quando a
 * A aluna **Raphaella Moraes** investigou estatisticamente a variável Process temperature [K] como possível preditor de falhas. O teste de hipótese foi aplicado com o objetivo de verificar se existe diferença significativa nos valores de temperatura entre máquinas com falha e sem falha. O teste de normalidade de Shapiro-Wilk indicou que os dados não seguem uma distribuição normal (p < 0,05), justificando o uso de um teste não paramétrico. O teste de Mann-Whitney apresentou p-valor maior que 0,05, indicando que não há evidência estatística suficiente para rejeitar a hipótese nula. O tamanho do efeito, calculado por meio do d de Cohen, apresentou valor baixo, indicando uma diferença de pequena magnitude. Assim, conclui-se que a temperatura de processo não apresenta diferença estatisticamente significativa entre máquinas com falha e sem falha neste dataset. Para o modelo de Machine Learning, a variável pode ser utilizada em conjunto com outras variáveis do sistema, mas isoladamente não demonstrou forte poder explicativo.
 
 * O aluno **Vinícius Makimoto** investigou estatisticamente a variável velocidade rotacional (RPM) como possível preditor de falhas. O teste de hipótese foi aplicado para verificar se existe diferença significativa na velocidade rotacional entre máquinas com falha e sem falha. O teste de normalidade de Shapiro-Wilk indicou que os dados não seguem distribuição normal (p < 0,05), sendo necessário o uso de um teste não paramétrico. O teste de Mann-Whitney apresentou p-valor = 0,5842, indicando que não há evidência estatística suficiente para rejeitar a hipótese nula. O tamanho do efeito calculado pelo d de Cohen foi de 0,0672, indicando um efeito muito pequeno. Assim, conclui-se que a velocidade rotacional não apresenta diferença estatisticamente significativa entre máquinas com falha e sem falha neste dataset. Para o modelo de Machine Learning futuro, a variável de RPM pode ser avaliada em conjunto com outras variáveis, mas isoladamente não demonstrou forte poder explicativo.
+
+### Etapa 3. Modelo de Inteligencia Artifical
+
+### Objetivo
+Desenvolver um modelo de Machine Learning capaz de prever falhas em máquinas industriais com base em dados operacionais, auxiliando a tomada de decisão na manutenção preditiva.
+
+---
+
+### Tipo de problema
+Classificação supervisionada.
+
+Variável alvo:
+
+- 0 → Sem falha  
+- 1 → Falha  
+
+---
+
+### Modelos testados
+- Decision Tree  
+- Random Forest  
+- K-Nearest Neighbors  
+- Support Vector Machine  
+- Naive Bayes  
+
+---
+
+### Métricas avaliadas
+- Acurácia  
+- Precisão (classe falha)  
+- Recall (classe falha)  
+- F1-Score  
+- Matriz de Confusão  
+
+---
+
+### Resultados obtidos
+Modelo: Random Forest
+
+- Acurácia: 92.1%  
+- Precisão (falha): 41.7%  
+- Recall (falha): 50.0%  
+- F1-Score: 45.5%  
+
+---
+
+### Análise
+O modelo apresentou boa capacidade de detecção de falhas (recall elevado), porém com baixa precisão, indicando a presença de falsos positivos.
+
+Modelos como Random Forest apresentaram melhor equilíbrio entre detecção de falhas e controle de alarmes falsos, sendo mais adequados para aplicação prática.
+
+---
+
+### Como o modelo resolve o problema
+O sistema recebe dados operacionais da máquina e retorna uma previsão indicando se há risco de falha.
+
+Isso permite:
+
+- Identificar falhas antecipadamente  
+- Apoiar decisões de manutenção  
+- Reduzir paradas inesperadas  
+
+---
+
+### Link do protótipo
+[https://aistudio.google.com/apps/ecd31dca-8a72-423e-8d1f-ca62b0699579?showAssistant=true&project=gen-lang-client-0913079953&showCode=true]
+
+---
+
+### Código-fonte
+Disponível neste repositório (Etapa 03).
