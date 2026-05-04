@@ -13,7 +13,7 @@
 
 ---
 
- [Link do Repositório]( https://colab.research.google.com/drive/1pxse1KOMtUaOiEfXSpptHOdFFoXsmmuc#scrollTo=21lLu3U_RZaw )
+ [Link do Repositório]( https://colab.research.google.com/drive/17O_d1T-bxNKzLgQZU9FFbvov7z0fqJ3h#scrollTo=9eMInA0UijH8 )
 
 ### 2. Área Problema Selecionada
 O grupo seleciona uma das áreas norteadoras abaixo para o desenvolvimento do projeto:
