@@ -35,6 +35,12 @@ export interface ModelMetrics {
   };
   predictedPositives: number;
   predictedNegatives: number;
+  crossValidationScore?: number;
+}
+
+export interface FeatureImportance {
+  feature: string;
+  importance: number;
 }
 
 export interface TrainingResult {
@@ -42,6 +48,7 @@ export interface TrainingResult {
   metrics: ModelMetrics;
   model: any; // The trained model instance
   timestamp: string;
+  featureImportances?: FeatureImportance[];
 }
 
 export enum ModelType {

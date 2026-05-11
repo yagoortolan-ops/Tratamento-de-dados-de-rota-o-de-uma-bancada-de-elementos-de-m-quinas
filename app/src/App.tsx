@@ -433,7 +433,8 @@ export default function App() {
                       <MetricBadge label="System Volume" value={summaryStats.total} />
                       <MetricBadge label="Accuracy" value={selectedModel ? `${(selectedModel.metrics.accuracy * 100).toFixed(1)}%` : "--"} color="blue" border />
                       <MetricBadge label="Recall (Fail)" value={selectedModel ? `${(selectedModel.metrics.recall * 100).toFixed(1)}%` : "--"} color="amber" border />
-                      <MetricBadge label="F1 Opt" value={selectedModel ? `${(selectedModel.metrics.f1Score * 100).toFixed(1)}` : "--"} color="green" border />
+                      <MetricBadge label="CV Score (F1)" value={selectedModel?.metrics.crossValidationScore ? `${(selectedModel.metrics.crossValidationScore * 100).toFixed(1)}%` : "--"} color="green" border />
+                      <MetricBadge label="F1 Opt" value={selectedModel ? `${(selectedModel.metrics.f1Score * 100).toFixed(1)}` : "--"} color="blue" border />
                     </>
                   )}
                 </div>
@@ -475,6 +476,43 @@ export default function App() {
                       </ResponsiveContainer>
                     </div>
                 </Card>
+
+                {/* Feature Importance Section */}
+                {selectedModel?.featureImportances && (
+                  <Card title="Feature Importance" icon={Layers} subtitle="Variables that impact machine failure probability">
+                    <div className="h-[200px] w-full mt-4">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <BarChart layout="vertical" data={selectedModel.featureImportances} margin={{ left: 10, right: 30 }}>
+                          <XAxis type="number" hide />
+                          <YAxis 
+                            dataKey="feature" 
+                            type="category" 
+                            axisLine={false} 
+                            tickLine={false} 
+                            tick={{ fontSize: 9, fill: '#94a3b8' }} 
+                            width={100}
+                          />
+                          <Tooltip 
+                            contentStyle={{ backgroundColor: '#0f0f0f', border: '1px solid #1e293b', fontSize: '10px' }}
+                          />
+                          <Bar 
+                            dataKey="importance" 
+                            fill="#3b82f6" 
+                            radius={[0, 4, 4, 0]}
+                            barSize={12}
+                          >
+                            {selectedModel.featureImportances.map((entry, index) => (
+                              <Cell 
+                                key={`cell-${index}`} 
+                                fill={entry.importance > 25 ? '#3b82f6' : entry.importance > 10 ? '#6366f1' : '#1e293b'} 
+                              />
+                            ))}
+                          </Bar>
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </Card>
+                )}
 
                 {/* Detailed Analysis Area */}
                 {selectedModel && (

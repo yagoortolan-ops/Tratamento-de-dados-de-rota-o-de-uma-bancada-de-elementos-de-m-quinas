@@ -1,168 +1,168 @@
-# Projeto: Manutenção Preditiva de Zero-Downtime: previsão de falhas em sistemas críticos, utilizando dados de sensores e modelos analíticos para evitar paradas não planejadas.
+# 🔧 Projeto: Manutenção Preditiva de Zero-Downtime
 
-### 1. Identificação do Grupo
-* **Instituição:** Faculdade Engenheiro Salvador Arena (FESA)
-* **Curso:** Engenharia de Controle e Automação - ECA10
-* **Grupo:** Manutenção Preditiva de Zero-Downtime: previsão de falhas em sistemas críticos, utilizando dados de sensores e modelos analíticos para evitar paradas não planejadas.
-* **Integrantes:**
-    * Carlos Eduardo Gatto - RA: 062210029
-    * Luiz Felipe Farias Mota - RA: 062210027
-    * Raphaella Souza de Moraes - RA: 062210010
-    * Vinicius Makimoto de Freitas - RA: 062210026
-    * Yago Patrick Gomide Oliveira Ortolan - RA: 062210028
+> Uma plataforma avançada de Ciência de Dados voltada para a **Engenharia de Manutenção** e **Análise de Falhas Industriais**. O sistema utiliza algoritmos de Machine Learning para processar dados operacionais de máquinas e prever falhas antes que elas ocorram, permitindo uma transição da manutenção reativa para a **Manutenção Preditiva**.
+
+![Status do Projeto](https://img.shields.io/badge/Status-Conclu%C3%ADdo%20-brightgreen)
+![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Modelagem-orange?logo=scikit-learn)
+![Google AI Studio](https://img.shields.io/badge/Google%20AI%20Studio-Dashboard-purple)
 
 ---
 
- [Link do Repositório]( https://colab.research.google.com/drive/17O_d1T-bxNKzLgQZU9FFbvov7z0fqJ3h#scrollTo=9eMInA0UijH8 )
+## 👥 1. Identificação do Grupo
 
-### 2. Área Problema Selecionada
-O grupo seleciona uma das áreas norteadoras abaixo para o desenvolvimento do projeto:
-* [x] Manutenção Preditiva de Zero-Downtime
-* [ ] Eficiência Energética e Descarbonização via Smart Grids
-* [ ] Controle de Qualidade Autônomo com Visão Computacional
-* [ ] Gêmeos Digitais (Digital Twins) e Analytics em Tempo Real
+- **Instituição:** Faculdade Engenheiro Salvador Arena (FESA)
+- **Curso:** Engenharia de Controle e Automação
+- **Disciplina:** Ciência de Dados
+- **Grupo:** Manutenção Preditiva de Zero-Downtime
 
----
-
-### 3. Diagnóstico e Definição do Problema
-Esta seção apresenta a fundamentação do desafio. O grupo descreve o cenário de atuação e justifica a importância da solução proposta.
-* **Contexto:** O projeto está inserido no contexto da Indústria 4.0, na qual sensores instalados em máquinas coletam dados operacionais continuamente, como temperatura, rotação, torque, vibração e horas de operação. Esses dados podem ser utilizados para identificar padrões de funcionamento e prever possíveis falhas antes que ocorram paradas inesperadas. No notebook desenvolvido, foi realizado o processo de ETL (Extração, Transformação e Limpeza dos dados), incluindo padronização dos nomes das colunas, verificação de valores nulos e duplicados, além da criação de novas variáveis que auxiliam na análise do comportamento dos equipamentos, como a variável binária de falha (has_failure) e a diferença de temperatura (delta_temperature).
-* **Problema:** A principal dificuldade está em identificar quais variáveis operacionais possuem relação com a ocorrência de falhas nas máquinas. Muitas vezes, as falhas não são perceptíveis visualmente e só são detectadas quando o equipamento já apresenta mau funcionamento ou parada total. Por meio da análise exploratória dos dados, foram investigadas relações entre variáveis como vibração, torque, rotação e horas de operação, buscando identificar padrões que indiquem maior probabilidade de falha. Foram utilizados gráficos como histogramas, boxplots, scatterplots e matriz de correlação para identificar tendências, possíveis anomalias (outliers) e relações estatísticas relevantes entre as variáveis do processo industrial.
-* **Impacto:** A análise realizada contribui para o desenvolvimento de estratégias de manutenção preditiva, permitindo que as falhas sejam identificadas antes que causem interrupções no processo produtivo. A identificação de padrões de comportamento associados a falhas pode auxiliar engenheiros e técnicos na tomada de decisão sobre inspeções, ajustes operacionais ou substituição de componentes. Como resultado, espera-se reduzir custos com manutenção corretiva, minimizar paradas inesperadas e aumentar a confiabilidade e eficiência dos equipamentos industriais. Dessa forma, o uso de técnicas de análise de dados torna o processo de manutenção mais estratégico, alinhado aos princípios da Indústria 4.0.
----
-
-### 4. Arquitetura de Dados (Fonte e Dataset)
-O projeto utiliza dados estruturados para alimentar os modelos preditivos.
-* **Origem dos Dados:** https://www.kaggle.com/datasets/nair26/predictive-maintenance-of-machines?resource=download
-* **Características:** O conjunto de dados apresenta variáveis como UDI (identificador único), Product ID, Type (tipo da máquina), Air Temperature (K), Process Temperature (K), Rotational Speed (rpm), Torque (Nm), Vibration Levels, Operational Hours e Failure Type (tipo de falha). Trata-se, portanto, de uma base com variáveis numéricas e categóricas voltadas ao monitoramento operacional e à análise de falhas em máquinas.
-* **Volume:** O dataset conta com 500 registros e 10 atributos técnicos.
+### Integrantes
+* **Yago Patrick Gomide Oliveira Ortolan** - RA: 062210029
+* **Vinícius Makimoto de Freitas** - RA: 062210026
+* **Raphaella Souza de Moraes** - RA: 062210010
+* **Luiz Felipe Farias Mota** - RA: 062210027
+* **Carlos Eduardo Gatto** - RA: 062210028
 
 ---
 
-### 5. Plano de Tratamento de Dados (ETL)
-O pipeline de dados segue as seguintes etapas de processamento:
-1. **Extração:** A ingestão ocorre por meio de arquivo CSV obtido a partir do dataset selecionado no Kaggle e importado para o ambiente Google Colab para leitura com Python.
-2. **Transformação:** O grupo realiza a inspeção e limpeza dos dados, incluindo verificação de valores ausentes, identificação de registros duplicados, análise de outliers e padronização dos nomes das colunas. Também podem ser aplicadas transformações complementares, como criação de variáveis derivadas e organização dos tipos de dados para análise.
-3. **Carga:** Os dados tratados são disponibilizados na pasta `/data/processed` para consumo dos modelos de Machine Learning.
+## 🎯 2. Área-Problema Selecionada
+
+O grupo selecionou a área de **Manutenção Preditiva**.
+
+### ✅ Recorte do projeto
+O sistema utiliza algoritmos de Machine Learning para processar dados operacionais de máquinas e prever falhas antes que elas ocorram.
+
+### 📌 Justificativa e Hipótese
+A manutenção preditiva é um pilar da Indústria 4.0. A hipótese central é que variáveis como torque, temperatura e vibração apresentam padrões anômalos detectáveis estatisticamente antes da falha funcional, permitindo intervenções planejadas que evitam o downtime.
 
 ---
 
-### 6. Estrutura do Repositório
-A organização das pastas facilita a manutenção e o versionamento do projeto:
-* `/docs`: Contém os diagramas de fluxo de dados e a documentação técnica.
-* `/data/raw`: Armazena os arquivos de dados originais (não modificados).
-* `/data/processed`: Armazena os dados após a execução do script de ETL.
-* `/scripts`: Contém os códigos Python responsáveis pelo tratamento dos dados.
-* `requirements.txt`: Lista todas as bibliotecas necessárias para a execução do projeto.
+## 🧩 3. Diagnóstico e Definição do Problema
+
+Explicação fundamentada do cenário de atuação e do desafio técnico.
+
+- **Problema:** A dificuldade em identificar correlações não lineares entre variáveis operacionais e falhas iminentes, que muitas vezes são imperceptíveis em inspeções visuais ou rotinas de manutenção preventiva baseadas apenas em tempo.
+- **Impacto:** Redução drástica de custos com manutenção corretiva, otimização da vida útil dos componentes e aumento da confiabilidade operacional do parque fabril.
 
 ---
 
-### 7. Instruções para Execução
-Para reproduzir o ambiente de dados e executar o pipeline de ETL:
-1. Clona-se este repositório.
-2. Instalam-se as dependências através do comando:
+## 🗂️ 4. Arquitetura de Dados (Fonte e Dataset)
+
+* **Origem:** [Predictive Maintenance Dataset - Kaggle](https://www.kaggle.com/datasets/nair26/predictive-maintenance-of-machines?resource=download)
+* **Características:** O conjunto de dados apresenta 500 registros e 10 atributos técnicos.
+* **Variáveis Principais:** Air Temperature, Process Temperature, Rotational Speed, Torque, Vibration e Operational Hours.
+* **Variável Alvo:** `Failure Type` (Indica a ocorrência e o tipo da falha).
+
+---
+
+## 🔄 5. Plano de Tratamento de Dados (ETL)
+
+O pipeline de dados segue as etapas:
+1. **Extração:** Ingestão de dados brutos via arquivos CSV na pasta `/data/raw`.
+2. **Transformação:** Limpeza de nulos, tratamento de duplicatas, padronização de nomenclatura e criação de variáveis derivadas como `has_failure` e `delta_temperature`.
+3. **Carga:** Armazenamento dos dados tratados em `/data/processed` para consumo dos modelos de ML.
+
+---
+
+## 📈 6. Desenvolvimento e Otimização (M2, M3 e M4)
+
+### M2 — Análise Exploratória (EDA)
+Análise descritiva para identificar correlações, distribuições e padrões iniciais no dataset. Uso de histogramas, boxplots e matrizes de correlação.
+
+### M3 — Modelagem de IA
+Desenvolvimento dos modelos preditivos e avaliação inicial de desempenho (Acurácia, Precisão, Recall, F1-Score).
+
+### M4 — Refinamento e Otimização Profissional
+Etapa final para garantir a robustez técnica:
+* **Ajuste de Hiperparâmetros:** Uso de `GridSearchCV` para encontrar a configuração ideal.
+* **Validação Cruzada (Cross-Validation):** Garantia de generalização do modelo.
+* **Engenharia de Atributos Final:** Identificação do *Feature Importance* para explicar as predições.
+
+---
+
+## 🖥️ 7. Dashboard de Monitoramento
+
+Interface visual rica (Industrial Intelligence V4.2) desenvolvida para monitoramento e validação interativa dos modelos de Machine Learning:
+
+* **Link do Protótipo:** [Dashboard]([https://colab.research.google.com/drive/103UgsdlRPv8nEaVcMZ7EAl5Mgn4bnZkB](https://aistudio.google.com/apps/ecd31dca-8a72-423e-8d1f-ca62b0699579?showAssistant=true&showPreview=true))
+* **Visão Geral e Métricas:** Painel exibindo a distribuição dos dados de treino/teste, volume do sistema e os KPIs de performance do modelo (Acurácia, Recall, F1-Score e CV Score).
+* **Avaliação de Algoritmos (Performance Signature):** Comparativo visual em gráficos de barras mostrando o desempenho de diferentes modelos (Decision Tree, Random Forest, Gradient Boosting, SVM, KNN, Naive Bayes).
+* **Explicabilidade da IA (Feature Importance):** Gráfico que revela o peso de cada variável na decisão da IA, destacando fatores críticos como *Tool Wear* e *Process Temp*.
+* **Motor de Inferência (Inference Engine):** Módulo prático onde o operador pode inserir parâmetros manuais da máquina (Tipo, Temperatura, RPM, Torque, Ciclo de Desgaste) para prever o estado do equipamento em tempo real.
+* **Análise Detalhada:** Visualização direta da Matriz de Confusão e da telemetria recente de ativos operacionais (*Asset Telemetry Sample*).
+---
+
+## 🧱 8. Estrutura do Repositório
+
+Organização das pastas conforme o padrão profissional exigido:
+
+```bash
+/
+├── data/               # Conjuntos de   dados
+│   ├── raw/            # Arquivos originais (imutáveis)
+│   └── processed/      # Arquivos tratados após ETL
+│
+├── images/             # Identidade visual e screenshots
+│
+├── notebooks/          # Notebooks Jupyter
+│   ├── compilado.ipynb # Arquivo final
+│   └── n1_individual/  # Testes estatísticos individuais
+│
+├── app/                # Interface Web
+│   ├── src             # Código principal
+│
+├── requirements.txt    # Lista de bibliotecas
+└── README.md           # Documentação principal
+```
+
+## 🚀 9. Instruções para Execução
+
+Para reproduzir o ambiente e executar o projeto, siga os passos abaixo:
+
+1.  **Clonar o Repositório:**
    ```bash
-   pip install -r requirements.txt
-   
----
+    git clone https://github.com/yagoortolan-ops/Manuten-o-Preditiva-de-Zero-Downtime
+    
+   ```
 
-### 8. Análise Exploratória de Dados
+2.  **Instalar Dependências:** 
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-* O aluno **Yago Patrick Gomide Oliveira Ortolan** investigou estatisticamente a variável torque_nm como possível preditor de falhas. 
-O teste de hipótese foi aplicado para verificar se existe diferença significativa nos valores de torque entre máquinas com falha e sem falha.
-O teste de normalidade de Shapiro-Wilk indicou que os dados seguem distribuição normal **(p > 0,05)**, permitindo o uso do Teste t.
-O Teste t apresentou **p-valor = 0,5099**, indicando que não há evidência estatística suficiente para rejeitar a hipótese nula.
-O teste de Mann-Whitney confirmou o resultado **(p = 0,4559)**. O tamanho do efeito calculado pelo d de Cohen foi **-0,157**, indicando efeito muito pequeno.
-**Assim, conclui-se que o torque não apresenta diferença estatisticamente significativa entre máquinas com falha e sem falha neste dataset.**
-Para o modelo de Machine Learning futuro, a variável torque pode ser utilizada em conjunto com outras variáveis, mas isoladamente não demonstrou forte poder explicativo.
+3.  **Executar Pipeline de Dados:**
+    ```bash
+    python scripts/etl.py
+    ```
 
-* O aluno **Carlos Gatto** investigou estatisticamente a variável operational_hours como possível preditor de falhas.
-O teste de hipótese foi aplicado para verificar se existe diferença significativa nas horas operacionais entre máquinas com falha e sem falha.
-O teste de normalidade de Shapiro-Wilk indicou que os dados não seguem distribuição normal **(p < 0,05)**, sendo necessário o uso de um teste não paramétrico.
-O teste de Mann-Whitney apresentou **p-valor = 0,2656**, indicando que não há evidência estatística suficiente para rejeitar a hipótese nula.
-O tamanho do efeito calculado foi **r = -0,0498**, indicando efeito muito pequeno.
-Assim, conclui-se que as horas operacionais não apresentam diferença estatisticamente significativa entre máquinas com falha e sem falha neste dataset.
-Para o modelo de Machine Learning futuro, a variável operational_hours pode ser utilizada em conjunto com outras variáveis, mas isoladamente não demonstrou forte poder explicativo.
-
-* O aluno **Luiz Felipe Farias Mota** investigou estatisticamente se as máquinas com maior vibração apresentam mais falhas.
-Foi realizado um teste de hipótese com o objetivo de verificar se máquinas que apresentam falhas possuem níveis de vibração diferentes das máquinas que operam normalmente.
-Inicialmente, aplicou-se o teste de normalidade de Shapiro-Wilk, que indicou que os dados de vibração podem ser considerados aproximadamente normais (p > 0,05). Dessa forma, foi possível utilizar o Teste t para comparação entre os grupos.
-O resultado do Teste t apresentou p-valor maior que 0,05, indicando que não foram encontradas evidências estatísticas suficientes para rejeitar a hipótese nula. Em outras palavras, não foi possível confirmar que existe diferença significativa nos níveis de vibração entre máquinas com falha e máquinas sem falha.
-Para reforçar a análise, também foi aplicado o teste não paramétrico de Mann-Whitney, que apresentou resultado consistente (p > 0,05). O cálculo do tamanho do efeito (d de Cohen) resultou em um valor próximo de zero, caracterizando um efeito muito pequeno do ponto de vista prático.
-Portanto, os resultados indicam que, neste conjunto de dados, a variável nível de vibração não apresentou diferença estatisticamente significativa entre os grupos analisados.
-Do ponto de vista da modelagem preditiva, isso sugere que a vibração, quando analisada isoladamente, não se mostrou um indicador forte de falhas. Entretanto, ela ainda pode contribuir para o modelo de Machine Learning quando combinada com outras variáveis relevantes do processo, como torque, temperatura e tempo de operação.
-
-* A aluna **Raphaella Moraes** investigou estatisticamente a variável Process temperature [K] como possível preditor de falhas. O teste de hipótese foi aplicado com o objetivo de verificar se existe diferença significativa nos valores de temperatura entre máquinas com falha e sem falha. O teste de normalidade de Shapiro-Wilk indicou que os dados não seguem uma distribuição normal (p < 0,05), justificando o uso de um teste não paramétrico. O teste de Mann-Whitney apresentou p-valor maior que 0,05, indicando que não há evidência estatística suficiente para rejeitar a hipótese nula. O tamanho do efeito, calculado por meio do d de Cohen, apresentou valor baixo, indicando uma diferença de pequena magnitude. Assim, conclui-se que a temperatura de processo não apresenta diferença estatisticamente significativa entre máquinas com falha e sem falha neste dataset. Para o modelo de Machine Learning, a variável pode ser utilizada em conjunto com outras variáveis do sistema, mas isoladamente não demonstrou forte poder explicativo.
-
-* O aluno **Vinícius Makimoto** investigou estatisticamente a variável velocidade rotacional (RPM) como possível preditor de falhas. O teste de hipótese foi aplicado para verificar se existe diferença significativa na velocidade rotacional entre máquinas com falha e sem falha. O teste de normalidade de Shapiro-Wilk indicou que os dados não seguem distribuição normal (p < 0,05), sendo necessário o uso de um teste não paramétrico. O teste de Mann-Whitney apresentou p-valor = 0,5842, indicando que não há evidência estatística suficiente para rejeitar a hipótese nula. O tamanho do efeito calculado pelo d de Cohen foi de 0,0672, indicando um efeito muito pequeno. Assim, conclui-se que a velocidade rotacional não apresenta diferença estatisticamente significativa entre máquinas com falha e sem falha neste dataset. Para o modelo de Machine Learning futuro, a variável de RPM pode ser avaliada em conjunto com outras variáveis, mas isoladamente não demonstrou forte poder explicativo.
-
-### Etapa 3. Modelo de Inteligencia Artifical
-
-### Objetivo
-Desenvolver um modelo de Machine Learning capaz de prever falhas em máquinas industriais com base em dados operacionais, auxiliando a tomada de decisão na manutenção preditiva.
+4.  **Executar Treinamento do Modelo Otimizado:**
+    ```bash
+    python scripts/train_model.py
+    ```
 
 ---
 
-### Tipo de problema
-Classificação supervisionada.
+## 🧪 10. N1 Individual — Aprofundamento Estatístico
 
-Variável alvo:
+Investigação estatística inferencial realizada individualmente para validar as hipóteses do projeto.
 
-- 0 → Sem falha  
-- 1 → Falha  
+| Integrante | Variável Analisada | Teste Realizado | Link do Notebook |
+| :--- | :--- | :--- | :--- |
+| **Yago Patrick Ortolan** | Torque (Nm) | Shapiro-Wilk / Teste T / Mann-Whitney | `notebooks/n1_individual/yago_torque.ipynb` |
+| **Carlos Eduardo Gatto** | Horas Operacionais | Shapiro-Wilk / Mann-Whitney | `notebooks/n1_individual/carlos_hours.ipynb` |
+| **Luiz Felipe Mota** | Nível de Vibração | Shapiro-Wilk / Teste T / Mann-Whitney | `notebooks/n1_individual/luiz_vibracao.ipynb` |
+| **Raphaella Souza de Moraes** | Process Temperature | Shapiro-Wilk / Mann-Whitney | `notebooks/n1_individual/raphaella_temp.ipynb` |
+| **Vinícius Makimoto de Freitas** | Velocidade Rotacional (RPM) | Shapiro-Wilk / Mann-Whitney | `notebooks/n1_individual/vinicius_rpm.ipynb` |
 
----
+--- 
 
-### Modelos testados
-- Decision Tree  
-- Random Forest  
-- K-Nearest Neighbors  
-- Support Vector Machine  
-- Naive Bayes  
+## 🤖 11. Apêndice de IA
 
----
+Relato sobre o suporte de ferramentas de Inteligência Artificial Generativa no desenvolvimento:
 
-### Métricas avaliadas
-- Acurácia  
-- Precisão (classe falha)  
-- Recall (classe falha)  
-- F1-Score  
-- Matriz de Confusão  
+* **Ferramentas:** Gemini e ChatGPT.
+* **Aplicação:** Apoio na estruturação do pipeline de ETL, sugestão de bibliotecas para testes estatísticos e revisão da documentação.
+* **Validação:** Todas as conclusões estatísticas e códigos de processamento foram validados tecnicamente pelos integrantes do grupo.
 
 ---
-
-### Resultados obtidos
-Modelo: Random Forest
-
-- Acurácia: 92.1%  
-- Precisão (falha): 41.7%  
-- Recall (falha): 50.0%  
-- F1-Score: 45.5%  
-
----
-
-### Análise
-O modelo apresentou boa capacidade de detecção de falhas (recall elevado), porém com baixa precisão, indicando a presença de falsos positivos.
-
-Modelos como Random Forest apresentaram melhor equilíbrio entre detecção de falhas e controle de alarmes falsos, sendo mais adequados para aplicação prática.
-
----
-
-### Como o modelo resolve o problema
-O sistema recebe dados operacionais da máquina e retorna uma previsão indicando se há risco de falha.
-
-Isso permite:
-
-- Identificar falhas antecipadamente  
-- Apoiar decisões de manutenção  
-- Reduzir paradas inesperadas  
-
----
-
-### Link do protótipo
-[https://aistudio.google.com/apps/ecd31dca-8a72-423e-8d1f-ca62b0699579?showAssistant=true&project=gen-lang-client-0913079953&showCode=true]
-
----
-
-### Código-fonte
-Disponível neste repositório (Etapa 03).
+© 2026 - Projeto de Ciência de Dados - Faculdade Engenheiro Salvador Arena
