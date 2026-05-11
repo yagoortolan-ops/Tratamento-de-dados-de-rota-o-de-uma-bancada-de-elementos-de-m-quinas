@@ -109,7 +109,7 @@ Organização das pastas conforme o padrão profissional exigido:
 │   └── n1_individual/  # Testes estatísticos individuais
 │
 ├── app/                # Interface Web
-│   ├── src             # Código principal
+│   └── src             # Código principal
 │
 ├── requirements.txt    # Lista de bibliotecas
 └── README.md           # Documentação principal
