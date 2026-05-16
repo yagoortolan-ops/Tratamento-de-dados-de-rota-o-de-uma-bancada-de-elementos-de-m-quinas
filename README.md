@@ -2,7 +2,7 @@
 
 > Uma plataforma avançada de Ciência de Dados voltada para a **Engenharia de Manutenção** e **Análise de Falhas Industriais**. O sistema utiliza algoritmos de Machine Learning para processar dados operacionais de máquinas e prever falhas antes que elas ocorram, permitindo uma transição da manutenção reativa para a **Manutenção Preditiva**.
 
-![Status do Projeto](https://img.shields.io/badge/Status-Conclu%C3%ADdo%20-brightgreen)
+![Status do Projeto](https://img.shields.io/badge/Status-Conclu%C3%ADdo%20/%20M4-brightgreen)
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python)
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Modelagem-orange?logo=scikit-learn)
 ![Google AI Studio](https://img.shields.io/badge/Google%20AI%20Studio-Dashboard-purple)
@@ -84,12 +84,12 @@ Etapa final para garantir a robustez técnica:
 
 Interface visual rica (Industrial Intelligence V4.2) desenvolvida para monitoramento e validação interativa dos modelos de Machine Learning:
 
-* **Link do Protótipo:** [Dashboard]([https://colab.research.google.com/drive/103UgsdlRPv8nEaVcMZ7EAl5Mgn4bnZkB](https://aistudio.google.com/apps/ecd31dca-8a72-423e-8d1f-ca62b0699579?showAssistant=true&showPreview=true))
+* **Link do Protótipo:** [Dashboard](https://aistudio.google.com/apps/ecd31dca-8a72-423e-8d1f-ca62b0699579?showAssistant=true&showPreview=true)
 * **Visão Geral e Métricas:** Painel exibindo a distribuição dos dados de treino/teste, volume do sistema e os KPIs de performance do modelo (Acurácia, Recall, F1-Score e CV Score).
 * **Avaliação de Algoritmos (Performance Signature):** Comparativo visual em gráficos de barras mostrando o desempenho de diferentes modelos (Decision Tree, Random Forest, Gradient Boosting, SVM, KNN, Naive Bayes).
 * **Explicabilidade da IA (Feature Importance):** Gráfico que revela o peso de cada variável na decisão da IA, destacando fatores críticos como *Tool Wear* e *Process Temp*.
 * **Motor de Inferência (Inference Engine):** Módulo prático onde o operador pode inserir parâmetros manuais da máquina (Tipo, Temperatura, RPM, Torque, Ciclo de Desgaste) para prever o estado do equipamento em tempo real.
-* **Análise Detalhada:** Visualização direta da Matriz de Confusão e da telemetria recente de ativos operacionais (*Asset Telemetry Sample*).
+
 ---
 
 ## 🧱 8. Estrutura do Repositório
@@ -98,7 +98,7 @@ Organização das pastas conforme o padrão profissional exigido:
 
 ```bash
 /
-├── data/               # Conjuntos de   dados
+├── data/               # Conjuntos de dados
 │   ├── raw/            # Arquivos originais (imutáveis)
 │   └── processed/      # Arquivos tratados após ETL
 │
@@ -108,12 +108,14 @@ Organização das pastas conforme o padrão profissional exigido:
 │   ├── compilado.ipynb # Arquivo final
 │   └── n1_individual/  # Testes estatísticos individuais
 │
-├── app/                # Interface Web
+├── app/                # Interface Web (Vite + TypeScript)
 │   └── src             # Código principal
 │
 ├── requirements.txt    # Lista de bibliotecas
 └── README.md           # Documentação principal
 ```
+
+---
 
 ## 🚀 9. Instruções para Execução
 
@@ -122,7 +124,6 @@ Para reproduzir o ambiente e executar o projeto, siga os passos abaixo:
 1.  **Clonar o Repositório:**
    ```bash
     git clone https://github.com/yagoortolan-ops/Manuten-o-Preditiva-de-Zero-Downtime
-    
    ```
 
 2.  **Instalar Dependências:** 
@@ -130,39 +131,43 @@ Para reproduzir o ambiente e executar o projeto, siga os passos abaixo:
     pip install -r requirements.txt
     ```
 
-3.  **Executar Pipeline de Dados:**
-    ```bash
-    python scripts/etl.py
-    ```
-
-4.  **Executar Treinamento do Modelo Otimizado:**
-    ```bash
-    python scripts/train_model.py
-    ```
+3.  **Executar Investigação Técnica:**
+    Os notebooks individuais com os testes de estresse e SHAP estão localizados na pasta `notebooks/n1_individual/`.
 
 ---
 
-## 🧪 10. N1 Individual — Aprofundamento Estatístico
+## 🧪 10. N1 Individual — Investigação de Robustez e Interpretabilidade
 
-Investigação estatística inferencial realizada individualmente para validar as hipóteses do projeto.
+Seguindo as diretrizes de investigação profunda do modelo final, cada integrante realizou um teste de estresse e análise de explicabilidade (SHAP).
 
-| Integrante | Variável Analisada | Teste Realizado | Link do Notebook |
-| :--- | :--- | :--- | :--- |
-| **Yago Patrick Ortolan** | Torque (Nm) | Shapiro-Wilk / Teste T / Mann-Whitney | `notebooks/n1_individual/yago_torque.ipynb` |
-| **Carlos Eduardo Gatto** | Horas Operacionais | Shapiro-Wilk / Mann-Whitney | `notebooks/n1_individual/carlos_hours.ipynb` |
-| **Luiz Felipe Mota** | Nível de Vibração | Shapiro-Wilk / Teste T / Mann-Whitney | `notebooks/n1_individual/luiz_vibracao.ipynb` |
-| **Raphaella Souza de Moraes** | Process Temperature | Shapiro-Wilk / Mann-Whitney | `notebooks/n1_individual/raphaella_temp.ipynb` |
-| **Vinícius Makimoto de Freitas** | Velocidade Rotacional (RPM) | Shapiro-Wilk / Mann-Whitney | `notebooks/n1_individual/vinicius_rpm.ipynb` |
+| Integrante | Foco da Investigação | Link do Notebook |
+| :--- | :--- | :--- |
+| **Yago Patrick Ortolan** | Estresse de Torque / SHAP | `notebooks/n1_individual/N1_Yago_Ortolan.ipynb` |
+| **Carlos Eduardo Gatto** | Estresse de Operational Hours / SHAP | `notebooks/n1_individual/N1_Carlos_Gatto.ipynb` |
+| **Luiz Felipe Mota** | Estresse de Vibração / SHAP | `notebooks/n1_individual/N1_Luiz_Mota.ipynb` |
+| **Raphaella Souza de Moraes** | Estresse de Temperatura / SHAP | `notebooks/n1_individual/N1_Raphaella_Moraes.ipynb` |
+| **Vinícius Makimoto de Freitas** | Estresse de RPM / SHAP | `notebooks/n1_individual/N1_Vinicius_Freitas.ipynb` |
 
---- 
+> [!TIP]
+> Os testes estatísticos iniciais (M2/M3) foram movidos para a pasta `/notebooks/n1_individual/archive/` para manter o histórico do projeto.
 
-## 🤖 11. Apêndice de IA
+---
+
+## 🛡️ 11. Relatório Técnico de Robustez (Resumo Global)
+
+*   **Teste de Ruído:** O modelo Random Forest demonstrou estabilidade com injeção de até 10% de ruído, com queda acentuada de performance apenas após 20% de variação artificial.
+*   **SHAP (Interpretability):** Através dos *Force Plots*, identificamos que as falhas são causadas majoritariamente pela combinação de Torque alto e RPM baixo, mesmo em máquinas com pouco desgaste.
+*   **Ação Preventiva:** Recomendamos a implementação de filtros de sinal nos sensores para mitigar falsos positivos gerados por ruído operacional.
+
+---
+
+## 🤖 12. Apêndice de IA
 
 Relato sobre o suporte de ferramentas de Inteligência Artificial Generativa no desenvolvimento:
 
-* **Ferramentas:** Gemini e ChatGPT.
-* **Aplicação:** Apoio na estruturação do pipeline de ETL, sugestão de bibliotecas para testes estatísticos e revisão da documentação.
-* **Validação:** Todas as conclusões estatísticas e códigos de processamento foram validados tecnicamente pelos integrantes do grupo.
+*   **Ferramentas:** Gemini e ChatGPT.
+*   **Aplicação:** Apoio na estruturação do pipeline de ETL, sugestão de bibliotecas para testes estatísticos e revisão da documentação técnica de robustez.
+*   **Validação:** Todas as conclusões estatísticas e códigos de processamento foram validados tecnicamente pelos integrantes do grupo.
 
 ---
 © 2026 - Projeto de Ciência de Dados - Faculdade Engenheiro Salvador Arena
